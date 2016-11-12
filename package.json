@@ -1,0 +1,21 @@
+{
+    "author": "l.vanryzin@vanderbilt.edu",
+    "dependencies": {},
+    "keywords": [],
+    "name": "realitycheck",
+    "pebble": {
+        "displayName": "RealityCheck",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "uuid": "2a395731-1fb3-428c-8add-cec42c523e09",
+        "watchapp": {
+            "watchface": false
+        }
+    },
+    "version": "1.0.0"
+}
