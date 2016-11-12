@@ -2,14 +2,20 @@
 
 Window *window;
 
+TextLayer *text_layer;
+
 void window_load(Window *window)
 {
-  
+  text_layer = text_layer_create(GRect(0,0,144,168));
+  text_layer_set_background_color(text_layer, GColorClear);
+  text_layer_set_text_color(text_layer, GColorBlack);
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
+  text_layer_set_text(text_layer, "Time for a reality check!");
 }
 
 void window_unload(Window *window) 
 {
-  
+  text_layer_destroy(text_layer);
 }
 
 void init() 
