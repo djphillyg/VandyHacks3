@@ -357,7 +357,7 @@ void window_unload_Click3(Window *window) {
   //Settings apply? page
 void window_load_Click4(Window *window) 
 {
-  text_layer = text_layer_create(GRect(0,0,144,168));
+  text_layer = text_layer_create(GRect(0,0,96,84));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
