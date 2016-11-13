@@ -1,21 +1,35 @@
 #include <pebble.h>
+#include <stdio.h>
 
 Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWakeup5,
 *windowClick, *windowClick2, *windowClick3, *windowClick4;
 
 TextLayer *text_layer, *text_layer2, *text_layer3;
 
- //USER PREFERENCES
-unit32_t freq_id_key = 1;
-const int default_freq = 4;
-const int freq = 0;
- 
- if(freq == 0) {
-   persist_write_int(freq_id_key, default_freq);
-       // Persist the ID so that a future launch can query it
-       const int freq_id_key = 43;
-       persist_write_int(wakeup_id_key, id);
-     }
+//USER PREFERENCES
+
+// //Frequency
+// const int freq = 4;
+// uint32_t freq_key = 1;
+// int cur_freq = persist_read_int(key);
+// if (cur_freq )
+// persist_write_int(freq_key,freq);
+
+//Frequency
+uint32_t freq_key = 1;
+int freq = 0;
+
+// if (persist_exists(freq_key)) {
+//   // Read persisted value
+//   freq = persist_read_int(key);
+// } else {
+//   // Choose a default value
+//   num_items = 4;
+
+//   // Remember the default value until the user chooses their own value
+//   persist_write_int(freq_key, freq);
+// }
+
 
 
 //First Reality check screen
@@ -84,16 +98,23 @@ void click_config_provider_Wakeup3(void *context)
 //Settings Page 1: Frequency of reality checks
 void up_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
-  
+  freq = persist_read_int(freq_key);
+  ++freq;
+  persist_write_int(freq_key, freq);
+  window_stack_push(windowClick, true);
 }
 
 void down_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
-  
+  freq = persist_read_int(freq_key);
+  --freq;
+  persist_write_int(freq_key, freq);
+  window_stack_push(windowClick, true); 
 }
 
 void select_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
+  persist_write_int(freq_key, freq);
   window_stack_push(windowClick2, true);
 }
 
@@ -319,6 +340,29 @@ void window_load_Click(Window *window)
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   text_layer_set_text(text_layer, "How many times a day would you like to receive reality checks?");
+  
+  text_layer2 = text_layer_create(GRect(56,96,48,42));
+  text_layer_set_background_color(text_layer2, GColorClear);
+  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
+  
+/* The string/char-buffer to hold the string representation of int.
+ * Assuming a 4byte int, this needs to be a maximum of upto 12bytes.
+ * to hold the number, optional negative sign and the NUL-terminator.
+ */
+  static char buf[] = "00000000000";    /* <-- implicit NUL-terminator at the end here */
+
+  freq = persist_read_int(freq_key);
+  snprintf(buf, sizeof(buf), "%d", freq);
+
+/* buf now contains the string representation of int i
+ * i.e. {'4', '2', 'NUL', ... }
+ */
+  text_layer_set_text(text_layer2, buf);
+  
+  
+  
 }
 
 void window_unload_Click(Window *window) {
@@ -404,6 +448,24 @@ void window_unload_Click4(Window *window) {
 
 void init() 
 {
+  //Initialize user preferences
+  //Frequency
+//   freq_key = 1;
+//   freq = 0;
+
+  if (persist_exists(freq_key)) {
+    // Read persisted value
+    freq = persist_read_int(freq_key);
+  }   else {
+    // Choose a default value
+    freq = 4;
+
+    // Remember the default value until the user chooses their own value
+    persist_write_int(freq_key, freq);
+  }
+  
+  
+  
   if (launch_reason() == APP_LAUNCH_WAKEUP) {
     //app was started by wakeup
     // Let the timestamp be 2 hours from now
