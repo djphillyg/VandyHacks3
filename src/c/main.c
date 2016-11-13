@@ -448,7 +448,7 @@ void window_unload_Click2(Window *window) {
 }
 
 
-//Settings: Sleep time
+//Settings: Bed time
 void window_load_Click3(Window *window) 
 {
   text_layer = text_layer_create(GRect(0,0,144,168));
@@ -471,7 +471,7 @@ void window_load_Click3(Window *window)
  */
   static char buf[] = "00000000000";    /* <-- implicit NUL-terminator at the end here */
 
-  wakeup = persist_read_int(bed_key);
+  bed = persist_read_int(bed_key);
   snprintf(buf, sizeof(buf), "%d", bed);
 
 /* buf now contains the string representation of int i
@@ -571,6 +571,10 @@ void init()
   
   if (launch_reason() == APP_LAUNCH_WAKEUP) {
     //app was started by wakeup
+    
+    //Vibrate and wake it up
+    vibes_short_pulse();
+    
     // Let the timestamp be 2 hours from now
     time_t future_timestamp = time(NULL) + (1 * SECONDS_PER_MINUTE);
 
