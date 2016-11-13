@@ -6,7 +6,7 @@ Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWak
 TextLayer *text_layer, *text_layer2, *text_layer3;
 
 // //USER PREFERENCES
-// const int freq_id_key = 1;
+// const int freq_id_key = 1;r
 // persist_write_int(freq_id_key, 4);
 // if(id >= 0) {
 //       // Persist the ID so that a future launch can query it
@@ -81,17 +81,17 @@ void click_config_provider_Wakeup3(void *context)
 //Settings Page 1: Frequency of reality checks
 void up_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
-  
+    window_stack_push(windowClick, true);
 }
 
 void down_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
-  
+    window_stack_push(windowClick, true);
 }
 
 void select_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
-  window_stack_push(windowClick2, true);
+    window_stack_push(windowClick2, true);
 }
 
 void click_config_provider_Click(void *context) 
@@ -158,14 +158,17 @@ void window_load_Wakeup(Window *window)
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlueMoon);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlueMoon);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -189,14 +192,17 @@ void window_load_Wakeup2(Window *window)
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlueMoon);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlueMoon);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -221,14 +227,17 @@ void window_load_Wakeup3(Window *window)
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlueMoon);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlueMoon);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -252,14 +261,17 @@ void window_load_Wakeup4(Window *window)
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlueMoon);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlueMoon);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -283,14 +295,17 @@ void window_load_Wakeup5(Window *window)
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlueMoon);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlueMoon);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -380,24 +395,9 @@ void window_load_Click4(Window *window)
   text_layer_set_text(text_layer3, "No.");
 }
 
-
-// //Settings apply? page
-// void window_load_Click4(Window *window) 
-// {
-//   text_layer = text_layer_create(GRect(0,0,144,168));
-//   text_layer_set_background_color(text_layer, GColorClear);
-//   text_layer_set_text_color(text_layer, GColorBlueMoon);
-//   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-//   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
-//   text_layer_set_text(text_layer, "Apply settings?");
-// }
-
 void window_unload_Click4(Window *window) {
   text_layer_destroy(text_layer);
 }
-
-
-
 
 void init() 
 {
@@ -453,28 +453,24 @@ void init()
     window_stack_push(windowWakeup, true);
   } else {
 
-    
-    
-//     time_t future_timestamp = time(NULL) + (1 * SECONDS_PER_MINUTE);
+     time_t future_timestamp = time(NULL) + (1 * SECONDS_PER_MINUTE);
 
-//     // Choose a 'cookie' value representing the reason for the wakeup
-//     const int cookie = 0;
+     // Choose a 'cookie' value representing the reason for the wakeup
+     const int cookie = 0;
 
-//     // If true, the user will be notified if they missed the wakeup 
-//     // (i.e. their watch was off)
-//     const bool notify_if_missed = true;
+     // If true, the user will be notified if they missed the wakeup 
+     // (i.e. their watch was off)
+     const bool notify_if_missed = true;
 
-//     // Schedule wakeup event
-//     WakeupId id = wakeup_schedule(future_timestamp, cookie, notify_if_missed);
+     // Schedule wakeup event
+     WakeupId id = wakeup_schedule(future_timestamp, cookie, notify_if_missed);
 
-//     // Check the scheduling was successful
-//     if(id >= 0) {
-//        //Persist the ID so that a future launch can query it
-//       const int wakeup_id_key = 43;
-//       persist_write_int(wakeup_id_key, id);
-//     }
-      
-    
+     // Check the scheduling was successful
+     if(id >= 0) {
+        //Persist the ID so that a future launch can query it
+       const int wakeup_id_key = 43;
+       persist_write_int(wakeup_id_key, id);
+     }
     
     windowClick = window_create();
     window_set_window_handlers(windowClick, (WindowHandlers) {
