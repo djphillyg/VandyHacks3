@@ -2,9 +2,9 @@
     "author": "l.vanryzin@vanderbilt.edu",
     "dependencies": {},
     "keywords": [],
-    "name": "realitycheck",
+    "name": "dreamr",
     "pebble": {
-        "displayName": "RealityCheck",
+        "displayName": "dreamr",
         "enableMultiJS": true,
         "messageKeys": [],
         "projectType": "native",
@@ -12,6 +12,11 @@
             "media": []
         },
         "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk"
+        ],
         "uuid": "2a395731-1fb3-428c-8add-cec42c523e09",
         "watchapp": {
             "watchface": false

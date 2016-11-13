@@ -1,5 +1,6 @@
 #include <pebble.h>
 #include <stdio.h>
+#include <stdio.h>
 
 Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWakeup5,
 *windowClick, *windowClick2, *windowClick3, *windowClick4, *windowClick5;
@@ -9,6 +10,16 @@ TextLayer *text_layer, *text_layer2, *text_layer3, *text_layer4;
 //Frequency
 uint32_t freq_key = 1;
 int freq = 0;
+
+//Wakeup Time
+uint32_t wakeup_key = 15;
+int wakeup = 0;
+
+//Bed Time
+uint32_t bed_key = 30;
+int bed = 0;
+
+
 
 //First Reality check screen
 void up_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
@@ -108,16 +119,41 @@ void click_config_provider_Click(void *context)
 //Settings Page 2: Wakeup Time
 void up_click_handler_Click2(ClickRecognizerRef recognizer, void *context) 
 {
+  wakeup = persist_read_int(wakeup_key);
   
+  wakeup = wakeup + 15;
+  
+  if (wakeup%100 == 60){
+    wakeup = wakeup + 40;
+  }
+  else if (wakeup > 2400){
+    wakeup = 15;
+  }
+  
+  persist_write_int(wakeup_key, wakeup);
+  window_stack_push(windowClick2, true);  
 }
 
 void down_click_handler_Click2(ClickRecognizerRef recognizer, void *context) 
 {
+  wakeup = persist_read_int(wakeup_key);
   
+  wakeup = wakeup - 15;
+  
+  if (wakeup%100 == 85){
+    wakeup = wakeup - 40;
+  }
+  else if (wakeup < 15){
+    wakeup = 2400;
+  }
+  
+  persist_write_int(wakeup_key, wakeup);
+  window_stack_push(windowClick2, true);  
 }
 
 void select_click_handler_Click2(ClickRecognizerRef recognizer, void *context) 
 {
+  persist_write_int(wakeup_key, wakeup);
   window_stack_push(windowClick3, true);
 }
 
@@ -132,16 +168,41 @@ void click_config_provider_Click2(void *context)
 //Settings Page 3: Sleep time
 void up_click_handler_Click3(ClickRecognizerRef recognizer, void *context) 
 {
+  bed = persist_read_int(bed_key);
   
+  bed = bed + 15;
+  
+  if (bed%100 == 60){
+    bed = bed + 40;
+  }
+  else if (bed > 2400){
+    bed = 15;
+  }
+  
+  persist_write_int(bed_key, bed);
+  window_stack_push(windowClick3, true); 
 }
 
 void down_click_handler_Click3(ClickRecognizerRef recognizer, void *context) 
 {
+  bed = persist_read_int(bed_key);
   
+  bed = bed - 15;
+  
+  if (bed%100 == 85){
+    bed = bed - 40;
+  }
+  else if (bed < 15){
+    bed = 2400;
+  }
+  
+  persist_write_int(bed_key, bed);
+  window_stack_push(windowClick3, true);
 }
 
 void select_click_handler_Click3(ClickRecognizerRef recognizer, void *context) 
 {
+  persist_write_int(bed_key, bed);
   window_stack_push(windowClick4, true);
 }
 
@@ -423,12 +484,33 @@ void window_load_Click2(Window *window)
   text_layer_set_text(text_layer, "What time do you normally wake up?");
   text_layer_set_text(text_layer2, "+");
   text_layer_set_text(text_layer3, "-");
+  
+  text_layer4 = text_layer_create(GRect(56,96,48,42));
+  text_layer_set_background_color(text_layer4, GColorClear);
+  text_layer_set_text_color(text_layer4, GColorBlueMoon);
+  text_layer_set_font(text_layer4, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer4));
+  
+/* The string/char-buffer to hold the string representation of int.
+ * Assuming a 4byte int, this needs to be a maximum of upto 12bytes.
+ * to hold the number, optional negative sign and the NUL-terminator.
+ */
+  static char buf[] = "00000000000";    /* <-- implicit NUL-terminator at the end here */
+
+  wakeup = persist_read_int(wakeup_key);
+  snprintf(buf, sizeof(buf), "%d", wakeup);
+
+/* buf now contains the string representation of int i
+ * i.e. {'4', '2', 'NUL', ... }
+ */
+  text_layer_set_text(text_layer4, buf);
 }
 
 void window_unload_Click2(Window *window) {
   text_layer_destroy(text_layer);
   text_layer_destroy(text_layer2);
   text_layer_destroy(text_layer3);
+  text_layer_destroy(text_layer4);
 }
 
 
@@ -456,12 +538,33 @@ void window_load_Click3(Window *window)
   text_layer_set_text(text_layer, "What time do you normally go to bed?");
   text_layer_set_text(text_layer2, "+");
   text_layer_set_text(text_layer3, "-");
+  
+  text_layer4 = text_layer_create(GRect(56,96,48,42));
+  text_layer_set_background_color(text_layer4, GColorClear);
+  text_layer_set_text_color(text_layer4, GColorBlueMoon);
+  text_layer_set_font(text_layer4, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer4));
+  
+  /* The string/char-buffer to hold the string representation of int.
+ * Assuming a 4byte int, this needs to be a maximum of upto 12bytes.
+ * to hold the number, optional negative sign and the NUL-terminator.
+ */
+  static char buf[] = "00000000000";    /* <-- implicit NUL-terminator at the end here */
+
+  bed = persist_read_int(bed_key);
+  snprintf(buf, sizeof(buf), "%d", bed);
+
+/* buf now contains the string representation of int i
+ * i.e. {'4', '2', 'NUL', ... }
+ */
+  text_layer_set_text(text_layer4, buf);
 }
 
 void window_unload_Click3(Window *window) {
   text_layer_destroy(text_layer);
   text_layer_destroy(text_layer2);
   text_layer_destroy(text_layer3);
+  text_layer_destroy(text_layer4);
 }
 
   //Settings apply? page
@@ -515,6 +618,44 @@ void window_unload_Click5(Window *window) {
 
 void init() 
 {
+  
+  //Initialize user preferences
+  //Frequency
+  if (persist_exists(freq_key)) {
+    // Read persisted value
+    freq = persist_read_int(freq_key);
+  }   else {
+    // Choose a default value
+    freq = 4;
+
+    // Remember the default value until the user chooses their own value
+    persist_write_int(freq_key, freq);
+  }
+  
+  //Wakeup time
+  if (persist_exists(wakeup_key)) {
+    // Read persisted value
+    wakeup = persist_read_int(wakeup_key);
+  }   else {
+    // Choose a default value
+    wakeup = 830;
+
+    // Remember the default value until the user chooses their own value
+    persist_write_int(wakeup_key, wakeup);
+  }
+  
+   //Bed time
+  if (persist_exists(bed_key)) {
+    // Read persisted value
+    bed = persist_read_int(bed_key);
+  }   else {
+    // Choose a default value
+    bed = 2230;
+
+    // Remember the default value until the user chooses their own value
+    persist_write_int(bed_key, wakeup);
+  }
+  
   if (launch_reason() == APP_LAUNCH_WAKEUP) {
     //app was started by wakeup
     // Let the timestamp be 2 hours from now
