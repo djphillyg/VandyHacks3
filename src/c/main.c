@@ -238,7 +238,7 @@ void click_config_provider_Click4(void *context)
 //Wakeup 1
 void window_load_Wakeup(Window *window)
 {
-  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer = text_layer_create(GRect(5,5,80,158));
   text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
@@ -272,7 +272,7 @@ void window_unload_Wakeup(Window *window)
 //Wakeup 2
 void window_load_Wakeup2(Window *window)
 {
-  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer = text_layer_create(GRect(5,5,80,158));
   text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
@@ -307,7 +307,7 @@ void window_unload_Wakeup2(Window *window)
 //Wakeup 3
 void window_load_Wakeup3(Window *window)
 {
-  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer = text_layer_create(GRect(5,5,80,158));
   text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
@@ -341,61 +341,31 @@ void window_unload_Wakeup3(Window *window)
 //Wakeup 4
 void window_load_Wakeup4(Window *window)
 {
-  text_layer = text_layer_create(GRect(50,50,50,50));
+  text_layer = text_layer_create(GRect(0,50,144,50));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   
-  text_layer2 = text_layer_create(GRect(96,0,48,42));
-  text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlue);
-  text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  
-  text_layer3 = text_layer_create(GRect(96,126,0,100));
-  text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlue);
-  text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
   text_layer_set_text(text_layer, "You are dreaming!");
-  text_layer_set_text(text_layer2, "");
-  text_layer_set_text(text_layer3, "");
 }
 
 void window_unload_Wakeup4(Window *window) 
 {
   text_layer_destroy(text_layer);
-  text_layer_destroy(text_layer2);
-  text_layer_destroy(text_layer3);
 }
 
 
 //Wakeup 5
 void window_load_Wakeup5(Window *window)
 {
-  text_layer = text_layer_create(GRect(50,50,50,50));
+  text_layer = text_layer_create(GRect(0,50,144,50));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   
-  text_layer2 = text_layer_create(GRect(96,0,48,42));
-  text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlue);
-  text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  
-  text_layer3 = text_layer_create(GRect(96,126,0,100));
-  text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlue);
-  text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
-  text_layer_set_text(text_layer, "You are  awake!");
-  text_layer_set_text(text_layer2, "");
-  text_layer_set_text(text_layer3, "");
+  text_layer_set_text(text_layer, "You are awake!");
 }
 
 void window_unload_Wakeup5(Window *window) 
