@@ -232,7 +232,7 @@ void init()
   if (launch_reason() == APP_LAUNCH_WAKEUP) {
     //app was started by wakeup
     // Let the timestamp be 2 hours from now
-    time_t future_timestamp = time(NULL) + (2 * 60 * SECONDS_PER_MINUTE);
+    time_t future_timestamp = time(NULL) + (1 * SECONDS_PER_MINUTE);
 
     // Choose a 'cookie' value representing the reason for the wakeup
     const int cookie = 0;
