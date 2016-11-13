@@ -4,29 +4,29 @@ Window *windowWakeup;
 
 TextLayer *text_layer;
 
-void up_click_handler(ClickRecognizerRef recognizer, void *context)
+void up_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
 {
    text_layer_set_text(text_layer, "you pressed up");
 }
  
-void down_click_handler(ClickRecognizerRef recognizer, void *context)
+void down_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
 {
    text_layer_set_text(text_layer, "you pressed down");
 }
  
-void select_click_handler(ClickRecognizerRef recognizer, void *context)
+void select_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
 {
    text_layer_set_text(text_layer, "you pressed select");
 }
 
-void click_config_provider(void *context)
+void click_config_provider_Wakeup(void *context)
 {
-    window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
-    window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
-    window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
+    window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Wakeup);
+    window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler_Wakeup);
+    window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler_Wakeup);
 }
 
-void window_load(Window *window)
+void window_load_Wakeup(Window *window)
 {
   text_layer = text_layer_create(GRect(0,0,144,168));
   text_layer_set_background_color(text_layer, GColorClear);
@@ -35,7 +35,7 @@ void window_load(Window *window)
   text_layer_set_text(text_layer, "Time for a reality check!");
 }
 
-void window_unload(Window *window) 
+void window_unload_Wakeup(Window *window) 
 {
   text_layer_destroy(text_layer);
 }
@@ -65,10 +65,10 @@ void init()
     }
     windowWakeup = window_create();
     window_set_window_handlers(windowWakeup, (WindowHandlers) {
-      .load = window_load,
-      .unload = window_unload,
+      .load = window_load_Wakeup,
+      .unload = window_unload_Wakeup,
     });
-    window_set_click_config_provider(windowWakeup, click_config_provider);
+    window_set_click_config_provider(windowWakeup, click_config_provider_Wakeup);
     window_stack_push(windowWakeup, true);
  // } else {
     
