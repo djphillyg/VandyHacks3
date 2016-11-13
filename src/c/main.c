@@ -1,9 +1,14 @@
 #include <pebble.h>
+#include <stdio.h>
 
 Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWakeup5,
 *windowClick, *windowClick2, *windowClick3, *windowClick4, *windowClick5;
 
-TextLayer *text_layer, *text_layer2, *text_layer3;
+TextLayer *text_layer, *text_layer2, *text_layer3, *text_layer4;
+
+//Frequency
+uint32_t freq_key = 1;
+int freq = 0;
 
 //First Reality check screen
 void up_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
@@ -71,16 +76,23 @@ void click_config_provider_Wakeup3(void *context)
 //Settings Page 1: Frequency of reality checks
 void up_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
+  freq = persist_read_int(freq_key);
+  ++freq;
+  persist_write_int(freq_key, freq);
   window_stack_push(windowClick, true);
 }
 
 void down_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
-  window_stack_push(windowClick, true);
+  freq = persist_read_int(freq_key);
+  --freq;
+  persist_write_int(freq_key, freq);
+  window_stack_push(windowClick, true); 
 }
 
 void select_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
 {
+  persist_write_int(freq_key, freq);
   window_stack_push(windowClick2, true);
 }
 
@@ -165,17 +177,17 @@ void click_config_provider_Click4(void *context)
 //Wakeup 1
 void window_load_Wakeup(Window *window)
 {
-  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer = text_layer_create(GRect(5,5,100,158));
   text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   
-  text_layer2 = text_layer_create(GRect(101,0,48,42));
+  text_layer2 = text_layer_create(GRect(95,0,53,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(101,126,48,42));
+  text_layer3 = text_layer_create(GRect(95,126,53,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
@@ -199,17 +211,17 @@ void window_unload_Wakeup(Window *window)
 //Wakeup 2
 void window_load_Wakeup2(Window *window)
 {
-  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer = text_layer_create(GRect(5,5,100,158));
   text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   
-  text_layer2 = text_layer_create(GRect(101,0,48,42));
+  text_layer2 = text_layer_create(GRect(95,0,53,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(101,126,48,42));
+  text_layer3 = text_layer_create(GRect(95,126,53,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
@@ -234,17 +246,17 @@ void window_unload_Wakeup2(Window *window)
 //Wakeup 3
 void window_load_Wakeup3(Window *window)
 {
-  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer = text_layer_create(GRect(5,5,100,158));
   text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
   text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   
-  text_layer2 = text_layer_create(GRect(101,0,48,42));
+  text_layer2 = text_layer_create(GRect(95,0,53,42));
   text_layer_set_background_color(text_layer2, GColorClear);
   text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(101,126,48,42));
+  text_layer3 = text_layer_create(GRect(95,126,53,42));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
@@ -278,7 +290,7 @@ void window_load_Wakeup4(Window *window)
   text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  text_layer3 = text_layer_create(GRect(96,126,0,100));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
@@ -312,7 +324,7 @@ void window_load_Wakeup5(Window *window)
   text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  text_layer3 = text_layer_create(GRect(96,126,0,100));
   text_layer_set_background_color(text_layer3, GColorClear);
   text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
@@ -357,12 +369,33 @@ void window_load_Click(Window *window)
   text_layer_set_text(text_layer, "How many times a day would you like to receive reality checks?");
   text_layer_set_text(text_layer2, "+");
   text_layer_set_text(text_layer3, "-");
+  
+  text_layer4 = text_layer_create(GRect(56,96,48,42));
+  text_layer_set_background_color(text_layer4, GColorClear);
+  text_layer_set_text_color(text_layer4, GColorBlueMoon);
+  text_layer_set_font(text_layer4, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer4));
+  
+  /* The string/char-buffer to hold the string representation of int.
+   * Assuming a 4byte int, this needs to be a maximum of upto 12bytes.
+   * to hold the number, optional negative sign and the NUL-terminator.
+   */
+  static char buf[] = "00000000000";    /* <-- implicit NUL-terminator at the end here */
+
+  freq = persist_read_int(freq_key);
+  snprintf(buf, sizeof(buf), "%d", freq);
+
+/* buf now contains the string representation of int i
+ * i.e. {'4', '2', 'NUL', ... }
+ */
+  text_layer_set_text(text_layer4, buf);
 }
 
 void window_unload_Click(Window *window) {
   text_layer_destroy(text_layer);
   text_layer_destroy(text_layer2);
   text_layer_destroy(text_layer3);
+  text_layer_destroy(text_layer4);
 }
 
 
@@ -474,14 +507,11 @@ void window_load_Click5(Window *window)
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
 
   text_layer_set_text(text_layer, "DONE!");
-
 }
 
 void window_unload_Click5(Window *window) {
   text_layer_destroy(text_layer);
 }
-
-
 
 void init() 
 {
