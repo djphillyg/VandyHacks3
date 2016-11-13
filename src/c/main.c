@@ -5,6 +5,16 @@ Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWak
 
 TextLayer *text_layer, *text_layer2, *text_layer3;
 
+// //USER PREFERENCES
+// const int freq_id_key = 1;
+// persist_write_int(freq_id_key, 4);
+// if(id >= 0) {
+//       // Persist the ID so that a future launch can query it
+//       const int wakeup_id_key = 43;
+//       persist_write_int(wakeup_id_key, id);
+//     }
+
+
 //First Reality check screen
 void up_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
 {
@@ -87,8 +97,8 @@ void select_click_handler_Click(ClickRecognizerRef recognizer, void *context)
 void click_config_provider_Click(void *context) 
 {
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Click);
-  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click);
-  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click);
+  window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler_Click);
+  window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler_Click);
 }
 
 
@@ -112,8 +122,8 @@ void select_click_handler_Click2(ClickRecognizerRef recognizer, void *context)
 void click_config_provider_Click2(void *context) 
 {
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Click2);
-  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click2);
-  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click2);
+  window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler_Click2);
+  window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler_Click2);
 }
 
 
@@ -136,8 +146,8 @@ void select_click_handler_Click3(ClickRecognizerRef recognizer, void *context)
 void click_config_provider_Click3(void *context) 
 {
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Click3);
-  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click3);
-  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click3);
+  window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler_Click3);
+  window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler_Click3);
 }
 
 
