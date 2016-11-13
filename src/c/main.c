@@ -5,14 +5,17 @@ Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWak
 
 TextLayer *text_layer, *text_layer2, *text_layer3;
 
-// //USER PREFERENCES
-// const int freq_id_key = 1;
-// persist_write_int(freq_id_key, 4);
-// if(id >= 0) {
-//       // Persist the ID so that a future launch can query it
-//       const int wakeup_id_key = 43;
-//       persist_write_int(wakeup_id_key, id);
-//     }
+ //USER PREFERENCES
+unit32_t freq_id_key = 1;
+const int default_freq = 4;
+const int freq = 0;
+ 
+ if(freq == 0) {
+   persist_write_int(freq_id_key, default_freq);
+       // Persist the ID so that a future launch can query it
+       const int freq_id_key = 43;
+       persist_write_int(wakeup_id_key, id);
+     }
 
 
 //First Reality check screen
