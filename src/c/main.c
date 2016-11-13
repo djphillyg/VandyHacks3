@@ -2,16 +2,16 @@
 
 Window *windowWakeup;
 
-TextLayer *text_layer;
+TextLayer *text_layer, *text_layer2, *text_layer3;
 
 void up_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
 {
-   text_layer_set_text(text_layer, "you pressed up");
+   text_layer_set_text(text_layer, "you pressed Yes");
 }
  
 void down_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
 {
-   text_layer_set_text(text_layer, "you pressed down");
+   text_layer_set_text(text_layer, "you pressed No");
 }
  
 void select_click_handler_Wakeup(ClickRecognizerRef recognizer, void *context)
@@ -28,11 +28,21 @@ void click_config_provider_Wakeup(void *context)
 
 void window_load_Wakeup(Window *window)
 {
-  text_layer = text_layer_create(GRect(0,0,144,168));
+  text_layer = text_layer_create(GRect(0,42,96,84));
   text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlack);
+  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer2 = text_layer_create(GRect(96,0,48,42));
+  text_layer_set_background_color(text_layer2, GColorClear);
+  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  text_layer_set_background_color(text_layer3, GColorClear);
+  text_layer_set_text_color(text_layer3, GColorBlueMoon);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
-  text_layer_set_text(text_layer, "Time for a reality check!");
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
+  text_layer_set_text(text_layer, "Time for a reality check! Click Yes to start.");
+  text_layer_set_text(text_layer2, "Yes!");
+  text_layer_set_text(text_layer3, "No.");
 }
 
 void window_unload_Wakeup(Window *window) 
