@@ -177,18 +177,21 @@ void click_config_provider_Click4(void *context)
 //Wakeup 1
 void window_load_Wakeup(Window *window)
 {
-  text_layer = text_layer_create(GRect(0,42,96,84));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
-  text_layer2 = text_layer_create(GRect(96,0,48,42));
+  
+  text_layer2 = text_layer_create(GRect(101,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  
+  text_layer3 = text_layer_create(GRect(101,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -208,18 +211,21 @@ void window_unload_Wakeup(Window *window)
 //Wakeup 2
 void window_load_Wakeup2(Window *window)
 {
-  text_layer = text_layer_create(GRect(0,42,96,84));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
-  text_layer2 = text_layer_create(GRect(96,0,48,42));
+  
+  text_layer2 = text_layer_create(GRect(101,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  
+  text_layer3 = text_layer_create(GRect(101,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -240,18 +246,21 @@ void window_unload_Wakeup2(Window *window)
 //Wakeup 3
 void window_load_Wakeup3(Window *window)
 {
-  text_layer = text_layer_create(GRect(0,42,96,84));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
-  text_layer2 = text_layer_create(GRect(96,0,48,42));
+  
+  text_layer2 = text_layer_create(GRect(101,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
-  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  
+  text_layer3 = text_layer_create(GRect(101,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
@@ -271,22 +280,25 @@ void window_unload_Wakeup3(Window *window)
 //Wakeup 4
 void window_load_Wakeup4(Window *window)
 {
-  text_layer = text_layer_create(GRect(0,42,96,84));
+  text_layer = text_layer_create(GRect(50,50,50,50));
   text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
-  text_layer_set_text(text_layer, "You are dreaming :)");
+  text_layer_set_text(text_layer, "You are dreaming!");
   text_layer_set_text(text_layer2, "");
   text_layer_set_text(text_layer3, "");
 }
@@ -302,22 +314,25 @@ void window_unload_Wakeup4(Window *window)
 //Wakeup 5
 void window_load_Wakeup5(Window *window)
 {
-  text_layer = text_layer_create(GRect(0,42,96,84));
+  text_layer = text_layer_create(GRect(50,50,50,50));
   text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
+  
   text_layer2 = text_layer_create(GRect(96,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   text_layer3 = text_layer_create(GRect(96,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
-  text_layer_set_text(text_layer, "You are  awake :)");
+  text_layer_set_text(text_layer, "You are  awake!");
   text_layer_set_text(text_layer2, "");
   text_layer_set_text(text_layer3, "");
 }
@@ -333,19 +348,19 @@ void window_unload_Wakeup5(Window *window)
 //Settings: Frequency
 void window_load_Click(Window *window) 
 {
-  text_layer = text_layer_create(GRect(0,5,100,168));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   
-  text_layer2 = text_layer_create(GRect(115,0,48,42));
+  text_layer2 = text_layer_create(GRect(120,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(115,126,48,42));
+  text_layer3 = text_layer_create(GRect(120,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
@@ -387,19 +402,19 @@ void window_unload_Click(Window *window) {
 //Settings: Wakeup time
 void window_load_Click2(Window *window) 
 {
-  text_layer = text_layer_create(GRect(0,5,100,168));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   
-  text_layer2 = text_layer_create(GRect(115,0,48,42));
+  text_layer2 = text_layer_create(GRect(120,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(115,126,48,42));
+  text_layer3 = text_layer_create(GRect(120,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
@@ -420,19 +435,19 @@ void window_unload_Click2(Window *window) {
 //Settings: Sleep time
 void window_load_Click3(Window *window) 
 {
-  text_layer = text_layer_create(GRect(0,5,100,168));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,105,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   
-  text_layer2 = text_layer_create(GRect(115,0,48,42));
+  text_layer2 = text_layer_create(GRect(120,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(115,126,48,42));
+  text_layer3 = text_layer_create(GRect(120,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
@@ -452,19 +467,19 @@ void window_unload_Click3(Window *window) {
   //Settings apply? page
 void window_load_Click4(Window *window) 
 {
-  text_layer = text_layer_create(GRect(0,0,96,84));
-  text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer = text_layer_create(GRect(5,5,91,158));
+  text_layer_set_background_color(text_layer, GColorBabyBlueEyes);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer2 = text_layer_create(GRect(96,0,48,42));
+  text_layer2 = text_layer_create(GRect(101,0,48,42));
   text_layer_set_background_color(text_layer2, GColorClear);
-  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_text_color(text_layer2, GColorBlue);
   text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
-  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  text_layer3 = text_layer_create(GRect(101,126,48,42));
   text_layer_set_background_color(text_layer3, GColorClear);
-  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_text_color(text_layer3, GColorBlue);
   text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
@@ -484,22 +499,19 @@ void window_unload_Click4(Window *window) {
 
 void window_load_Click5(Window *window) 
 {
-  text_layer = text_layer_create(GRect(0,0,96,84));
+  text_layer = text_layer_create(GRect(50,50,50,50));
   text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorBlueMoon);
+  text_layer_set_text_color(text_layer, GColorBlue);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
 
   text_layer_set_text(text_layer, "DONE!");
-
 }
 
 void window_unload_Click5(Window *window) {
   text_layer_destroy(text_layer);
 }
-
-
 
 void init() 
 {
