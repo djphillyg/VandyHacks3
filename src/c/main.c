@@ -1,6 +1,7 @@
 #include <pebble.h>
 
-Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWakeup5, *window;
+Window *windowWakeup, *windowWakeup2, *windowWakeup3, *windowWakeup4, *windowWakeup5,
+*windowClick, *windowClick2, *windowClick3, *windowClick4;
 
 TextLayer *text_layer, *text_layer2, *text_layer3;
 
@@ -68,6 +69,72 @@ void click_config_provider_Wakeup3(void *context)
     window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Wakeup3);
     window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler_Wakeup3);
     window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler_Wakeup3);
+}
+
+void up_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
+{
+  
+}
+
+void down_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
+{
+  
+}
+
+void select_click_handler_Click(ClickRecognizerRef recognizer, void *context) 
+{
+  window_stack_push(windowClick2, true);
+}
+
+void click_config_provider_Click(void *context) 
+{
+  window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Click);
+  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click);
+  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click);
+}
+
+void up_click_handler_Click2(ClickRecognizerRef recognizer, void *context) 
+{
+  
+}
+
+void down_click_handler_Click2(ClickRecognizerRef recognizer, void *context) 
+{
+  
+}
+
+void select_click_handler_Click2(ClickRecognizerRef recognizer, void *context) 
+{
+  window_stack_push(windowClick3, true);
+}
+
+void click_config_provider_Click2(void *context) 
+{
+  window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Click2);
+  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click2);
+  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click2);
+}
+
+void up_click_handler_Click3(ClickRecognizerRef recognizer, void *context) 
+{
+  
+}
+
+void down_click_handler_Click3(ClickRecognizerRef recognizer, void *context) 
+{
+  
+}
+
+void select_click_handler_Click3(ClickRecognizerRef recognizer, void *context) 
+{
+  window_stack_push(windowClick4, true);
+}
+
+void click_config_provider_Click3(void *context) 
+{
+  window_single_click_subscribe(BUTTON_ID_UP, up_click_handler_Click3);
+  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click3);
+  window_single_click_subscribe(BUTTON_ID_UP, down_click_handler_Click3);
 }
 
 void window_load_Wakeup(Window *window)
@@ -215,15 +282,51 @@ void window_unload_Wakeup5(Window *window)
   text_layer_destroy(text_layer3);
 }
 
-void window_load(Window *window) 
+void window_load_Click(Window *window) 
 {
   text_layer = text_layer_create(GRect(0,0,144,168));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlack);
-  text_layer_set_text(text_layer, "First Wakeup set");
+  text_layer_set_text(text_layer, "Frequency");
 }
 
-void window_unload(Window *window) {
+void window_unload_Click(Window *window) {
+  text_layer_destroy(text_layer);
+}
+
+void window_load_Click2(Window *window) 
+{
+  text_layer = text_layer_create(GRect(0,0,144,168));
+  text_layer_set_background_color(text_layer, GColorClear);
+  text_layer_set_text_color(text_layer, GColorBlack);
+  text_layer_set_text(text_layer, "Wake Time");
+}
+
+void window_unload_Click2(Window *window) {
+  text_layer_destroy(text_layer);
+}
+
+void window_load_Click3(Window *window) 
+{
+  text_layer = text_layer_create(GRect(0,0,144,168));
+  text_layer_set_background_color(text_layer, GColorClear);
+  text_layer_set_text_color(text_layer, GColorBlack);
+  text_layer_set_text(text_layer, "Sleep Time");
+}
+
+void window_unload_Click3(Window *window) {
+  text_layer_destroy(text_layer);
+}
+
+void window_load_Click4(Window *window) 
+{
+  text_layer = text_layer_create(GRect(0,0,144,168));
+  text_layer_set_background_color(text_layer, GColorClear);
+  text_layer_set_text_color(text_layer, GColorBlack);
+  text_layer_set_text(text_layer, "Apply?");
+}
+
+void window_unload_Click4(Window *window) {
   text_layer_destroy(text_layer);
 }
 
@@ -295,17 +398,35 @@ void init()
 
     // Check the scheduling was successful
     if(id >= 0) {
-      // Persist the ID so that a future launch can query it
+       //Persist the ID so that a future launch can query it
       const int wakeup_id_key = 43;
       persist_write_int(wakeup_id_key, id);
-      
-    window = window_create();
-    window_set_window_handlers(window, (WindowHandlers) {
-      .load = window_load,
-      .unload = window_unload,
-    });
-    window_stack_push(window, true);
     }
+      
+    windowClick = window_create();
+    window_set_window_handlers(windowClick, (WindowHandlers) {
+      .load = window_load_Click,
+      .unload = window_unload_Click,
+    });
+    windowClick2 = window_create();
+    window_set_window_handlers(windowClick2, (WindowHandlers) {
+      .load = window_load_Click2,
+      .unload = window_unload_Click2,
+    });
+    windowClick3 = window_create();
+    window_set_window_handlers(windowClick2, (WindowHandlers) {
+      .load = window_load_Click3,
+      .unload = window_unload_Click3,
+    });
+    windowClick4 = window_create();
+    window_set_window_handlers(windowClick4, (WindowHandlers) {
+      .load = window_load_Click4,
+      .unload = window_unload_Click4,
+    });
+    window_set_click_config_provider(windowClick, click_config_provider_Click);
+    window_set_click_config_provider(windowClick2, click_config_provider_Wakeup2);
+    window_set_click_config_provider(windowClick3, click_config_provider_Wakeup3);
+    window_stack_push(windowClick, true);
   }
 }
 
