@@ -263,6 +263,8 @@ void deinit()
   window_destroy(windowWakeup);
   window_destroy(windowWakeup2);
   window_destroy(windowWakeup3);
+  window_destroy(windowWakeup4);
+  window_destroy(windowWakeup5);
 }
 
 int main(void) 
