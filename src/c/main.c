@@ -303,7 +303,7 @@ void window_load_Click(Window *window)
   text_layer = text_layer_create(GRect(0,0,144,168));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
-  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   text_layer_set_text(text_layer, "How many times a day would you like to receive reality checks?");
 }
@@ -319,7 +319,7 @@ void window_load_Click2(Window *window)
   text_layer = text_layer_create(GRect(0,0,144,168));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
-  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   text_layer_set_text(text_layer, "What time do you normally wake up?");
 }
@@ -335,7 +335,7 @@ void window_load_Click3(Window *window)
   text_layer = text_layer_create(GRect(0,0,144,168));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
-  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
   text_layer_set_text(text_layer, "What time do you normally go to bed?");
 }
@@ -344,17 +344,43 @@ void window_unload_Click3(Window *window) {
   text_layer_destroy(text_layer);
 }
 
-
-//Settings apply? page
+  //Settings apply? page
 void window_load_Click4(Window *window) 
 {
   text_layer = text_layer_create(GRect(0,0,144,168));
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorBlueMoon);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
+  text_layer2 = text_layer_create(GRect(96,0,48,42));
+  text_layer_set_background_color(text_layer2, GColorClear);
+  text_layer_set_text_color(text_layer2, GColorBlueMoon);
+  text_layer_set_font(text_layer2, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
+  text_layer3 = text_layer_create(GRect(96,126,48,42));
+  text_layer_set_background_color(text_layer3, GColorClear);
+  text_layer_set_text_color(text_layer3, GColorBlueMoon);
+  text_layer_set_font(text_layer3, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer2));
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer3));
   text_layer_set_text(text_layer, "Apply settings?");
+  text_layer_set_text(text_layer2, "Yes!");
+  text_layer_set_text(text_layer3, "No.");
 }
+
+
+// //Settings apply? page
+// void window_load_Click4(Window *window) 
+// {
+//   text_layer = text_layer_create(GRect(0,0,144,168));
+//   text_layer_set_background_color(text_layer, GColorClear);
+//   text_layer_set_text_color(text_layer, GColorBlueMoon);
+//   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
+//   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
+//   text_layer_set_text(text_layer, "Apply settings?");
+// }
 
 void window_unload_Click4(Window *window) {
   text_layer_destroy(text_layer);
@@ -453,7 +479,7 @@ void init()
     });
     
     windowClick3 = window_create();
-    window_set_window_handlers(windowClick2, (WindowHandlers) {
+    window_set_window_handlers(windowClick3, (WindowHandlers) {
       .load = window_load_Click3,
       .unload = window_unload_Click3,
     });
