@@ -1,3 +1,5 @@
+/*
+
 #include <pebble.h>
 
 Window *windowWakeup;
@@ -89,7 +91,7 @@ int main(void)
 }
 
 
-
+*/
 
 
 
