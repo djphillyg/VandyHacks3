@@ -1,6 +1,6 @@
 #include <pebble.h>
 
-Window *windowWakeup;
+Window *window;
 
 TextLayer *text_layer;
 
@@ -20,42 +20,19 @@ void window_unload(Window *window)
 
 void init() 
 {
-  if (launch_reason() == APP_LAUNCH_WAKEUP) {
-    //app was started by wakeup
-    // Let the timestamp be 2 hours from now
-    time_t future_timestamp = time(NULL) + (2 * 60 * SECONDS_PER_MINUTE);
-
-    // Choose a 'cookie' value representing the reason for the wakeup
-    const int cookie = 0;
-
-    // If true, the user will be notified if they missed the wakeup 
-    // (i.e. their watch was off)
-    const bool notify_if_missed = true;
-
-    // Schedule wakeup event
-    WakeupId id = wakeup_schedule(future_timestamp, cookie, notify_if_missed);
-
-    // Check the scheduling was successful
-    if(id >= 0) {
-      // Persist the ID so that a future launch can query it
-      const int wakeup_id_key = 43;
-      persist_write_int(wakeup_id_key, id);
-    }
-    windowWakeup = window_create();
-    window_set_window_handlers(windowWakeup, (WindowHandlers) {
-      .load = window_load,
-      .unload = window_unload,
-    });
-    window_stack_push(windowWakeup, true); 
-  } else {
-    
-  }
+  //initialize app elements 
+  window = window_create();
+  window_set_window_handlers(window, (WindowHandlers) {
+    .load = window_load,
+    .unload = window_unload,
+  });
+  window_stack_push(window, true);
 }
 
 void deinit() 
 {
   //deinitialize app elements
-  window_destroy(windowWakeup);
+  window_destroy(window);
 }
 
 int main(void) 
